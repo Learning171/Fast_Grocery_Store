@@ -10,7 +10,7 @@ export default function HomeScreen() {
   const getallproductstate = useSelector((state) => state.productReducer);
   const loginReducer = useSelector((state) => state.loginReducer);
 
-  const { loading, products, error, accuracy } = getallproductstate;
+  const { loading, products, error } = getallproductstate;
   const {  currentUser } = loginReducer;
 
   const dispatch = useDispatch();

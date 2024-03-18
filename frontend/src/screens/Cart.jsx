@@ -33,12 +33,12 @@ export default function CartScreen() {
                     <td>
                       <input
                         type="number"
-                        value={item.quantity}
+                        value={isNaN(item.quantity) ? '' : item.quantity} 
                         onChange={(e) =>
                           dispatch(
                             updateCartQuantity({
                               id: item.id,
-                              quantity: parseInt(e.target.value),
+                              quantity: e.target.value === '' ? '' : parseInt(e.target.value), 
                             })
                           )
                         }
@@ -57,7 +57,7 @@ export default function CartScreen() {
             </table>
           </div>
           <hr />
-          <h2 className="text-center">SubTotal: {subtotal.toFixed(2)} Rp/-</h2>
+          <h2 className="text-center">SubTotal: Rs.{subtotal.toFixed(2)}/-</h2>
           <hr />
           <Checkout amount={subtotal} />
         </div>

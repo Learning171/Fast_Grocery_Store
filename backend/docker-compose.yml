@@ -1,0 +1,30 @@
+version: "3"
+services:
+  api:
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=store_db
+      - STRIPE_KEY=sk_test_51OsaktSHGrAv92fGRUbUPIsbsepC1oJKOR8c6Nlu5CmKMKct9YXyI2C2cS94BGYLynvcFI5baGSiluus3zDBjWWA00UHUr1Qwe
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=store_db
+
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+volumes:
+  postgres-db:

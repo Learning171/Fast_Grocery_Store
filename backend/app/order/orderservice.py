@@ -3,8 +3,8 @@ import stripe
 from sqlalchemy.orm import Session
 from fastapi import Depends
 from fastapi.encoders import jsonable_encoder
-from validations.orderschema import OrderCreatePlaceOrder
-from models.ordermodels import OrderModel, OrderItemsModel, ShippingAddressModel
+from app.validations.orderschema import OrderCreatePlaceOrder
+from app.models.ordermodels import OrderModel, OrderItemsModel, ShippingAddressModel
 
 from uuid import uuid4
 

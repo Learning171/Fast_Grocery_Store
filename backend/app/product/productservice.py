@@ -1,7 +1,7 @@
 from sqlalchemy.orm.session import Session
-from models.productmodels import ProductModel
-from models.reviewmodels import ReviewModel
-from validations.productschema import ProductSchema
+from app.models.productmodels import ProductModel
+from app.models.reviewmodels import ReviewModel
+from app.validations.productschema import ProductSchema
 from sklearn.neighbors import NearestNeighbors
 import nltk
 import pandas as pd

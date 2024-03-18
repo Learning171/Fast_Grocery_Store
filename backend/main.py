@@ -1,15 +1,15 @@
 import uvicorn
 from fastapi import FastAPI
-from config.database import engine
-from config.database import Base
-from auth import authrouter
-from users import usersrouter
-from review import reviewrouter
-from product import productrouter
-from models import ordermodels, productmodels, reviewmodels, usermodels
-from order import orderrouter
+from app.config.database import engine
+from app.config.database import Base
+from app.auth import authrouter
+from app.users import usersrouter
+from app.review import reviewrouter
+from app.product import productrouter
+from app.order import orderrouter
+from app.models import ordermodels, productmodels, reviewmodels, usermodels
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
+# from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
@@ -28,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# app.mount("/static", StaticFiles(directory="static"), name="static")
 
 usermodels.Base.metadata.create_all(bind=engine)
 reviewmodels.Base.metadata.create_all(bind=engine)

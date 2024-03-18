@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 from jwt import PyJWTError
 import jwt
 from sqlalchemy.orm import Session
-from config.database import get_db
-from users.usersservice import UserService
+from app.config.database import get_db
+from app.users.usersservice import UserService
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException, status
 

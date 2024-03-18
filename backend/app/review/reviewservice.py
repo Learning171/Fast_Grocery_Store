@@ -1,13 +1,13 @@
 from fastapi import Depends, HTTPException, status
-from models.productmodels import ProductModel
+from app.models.productmodels import ProductModel
 
-from config.token import get_currentUser
-from models.reviewmodels import ReviewModel
+from app.config.token import get_currentUser
+from app.models.reviewmodels import ReviewModel
 from sqlalchemy import func
-from models.usermodels import User
-from config.database import get_db
+from app.models.usermodels import User
+from app.config.database import get_db
 from sqlalchemy.orm import Session
-from validations.reviewschema import ReviewCreate
+from app.validations.reviewschema import ReviewCreate
 
 
 class ReviewService:
